@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+
+    <form>
+        <label for="numero1">Número 1:</label>
+        <input type="number" id="numero1" name="numero1"><br><br>
+
+        <label for="numero2">Número 2:</label>
+        <input type="number" id="numero2" name="numero2"><br><br>
+
+        <button type="button" onclick="somar()">somar</button>
+        <button type="button" onclick= "subtrair()">Subtrair</button>
+        <button type="button" onclick="dividir()">Dividir</button>
+        <button type="button" onclick="multiplicar()">Multiplicar</button>
+      </form>
+
+      <span class="resultado"></span>
+
+    <script>
+        
+
+        var numero1 = parseFloat(document.querySelector('#numero1').value);
+        var numero2 = parseFloat(document.querySelector('#numero2').value);
+        var resultadoConta = document.querySelector('.resultado');
+        
+
+        function somar(){
+
+            var  soma = numero1 + numero2;
+            resultadoConta.innerHTML = soma
+            
+        }
+
+        function subtrair(){
+            var  subtracao = numero1 - numero2;
+            resultadoConta.innerHTML = subtracao
+        }
+
+        function dividir(){
+
+            if(numero2 !== 0){
+                var  divisao = numero1 / numero2;
+                resultadoConta.innerHTML = divisao
+            }else{
+                alert("Não é possível efetuar a divisão por zero")
+            }  
+        }
+
+
+        function multiplicar(){
+            var  multiplicacao = numero1 * numero2;
+            resultadoConta.innerHTML = multiplicacao
+        }
+
+
+
+       
+
+      
+
+
+        
+                
+
+
+
+    </script>
+</body>
+</html>
