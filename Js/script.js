@@ -1,33 +1,40 @@
 
-var numero1 = parseFloat(document.querySelector('#numero1').value);
-var numero2 = parseFloat(document.querySelector('#numero2').value);
+
+var numero1 = document.querySelector('#numero1');
+var numero2 = document.querySelector('#numero2');
 var camporesultado = document.querySelector('.resultado');
 
 
 
 function mostrarResultado (resultado){
+    
+    if(isNaN(resultado)){
+        alert("Valores inseridos são invalidos. Por favor, digite novamente.")
+    }else{camporesultado.innerHTML = `O resultado da conta é: ${resultado}`
+}
 
-    camporesultado.innerHTML = `O resultado da conta é: ${resultado}`
+    
 
 }
 
+
 function somar(){
 
-    var  soma = numero1 + numero2;
+    var soma = parseFloat(numero1.value) + parseFloat(numero2.value);
     return mostrarResultado(soma)
     
 }
 
 function subtrair(){
-    var  subtracao = numero1 - numero2;
+    var  subtracao = parseFloat(numero1.value) - parseFloat(numero2.value);
     
     return mostrarResultado(subtracao)
 }
 
 function dividir(){
 
-    if(numero2 != 0){
-        var  divisao = numero1 / numero2;
+    if(numero2.value != 0){
+        var  divisao = parseFloat(numero1.value) / parseFloat(numero2.value);
         return mostrarResultado(divisao)
 
     }else{
@@ -37,6 +44,6 @@ function dividir(){
 
 
 function multiplicar(){
-    var  multiplicacao = numero1 * numero2;
+    var  multiplicacao = parseFloat(numero1.value) * parseFloat(numero2.value);
     return mostrarResultado(multiplicacao)
 }

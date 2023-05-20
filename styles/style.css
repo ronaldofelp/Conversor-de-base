@@ -6,9 +6,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
 }
-
-
 
 body{
     width: 100vw;
@@ -30,19 +30,20 @@ body{
     border-radius: 5px; 
 }
 
-form{
-    text-align: center;
-    
+.titulo{
+   font-size: 25px; 
+   font-weight: bold;
+   margin-bottom: 15px;
 }
 .campo{
+
+    margin-top: 15px;
+    margin-bottom: 15px;
     text-align: center;
     padding: 5px;
+    border-radius: 5px; 
 }
-.numero{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
 
-}
 
 .resultado{
     display: inline-block;
@@ -50,16 +51,16 @@ form{
     text-align: center;
     padding: 9px;
     background-color: #29f4d5;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
+    border-radius: 5px; 
 }
+
+
 .bnt{
     background-color: #fffafa;
     border: 1px solid #fffafa;
-    margin-top: 50px;
+    margin-top: 40px;
     padding: 9px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
+    border-radius: 5px; 
 }
 
 .bnt:hover{
