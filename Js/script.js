@@ -1,49 +1,83 @@
+//Criando a Classe Satck
+class Stack {
+    constructor() {
+        this.count = 0;
+        this.items = {};
+    }
+
+    push(element) {
+        this.items[this.count] = element;
+        this.count++;
+    }
 
 
-var numero1 = document.querySelector('#numero1');
-var numero2 = document.querySelector('#numero2');
-var camporesultado = document.querySelector('.resultado');
+    isEmpty() {
+        return this.count === 0;
+    }
 
+    pop() {
+        if (this.isEmpty()) {
+            return undefined;
+        }
 
+        this.count--;
 
-function mostrarResultado (resultado){
-    
-    if(isNaN(resultado)){
-        alert("Valores inseridos são invalidos. Por favor, digite novamente.")
-    }else{camporesultado.innerHTML = `O resultado da conta é: ${resultado}`
+        const result = this.items[this.count];
+        delete this.items[this.count];
+        return result;
+
+    }
+
 }
 
-    
+const showResult = document.querySelector('.showResult');
+const resultField = document.querySelector('.result');
 
+//função responsável por converter a base
+
+
+function baseConverter(decNumber, base) {
+
+    const remStack = new Stack();
+    const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+
+    let number = decNumber;
+    let rem;
+    let baseString = '';
+
+    if (!(base >= 2 && base <= 36)) {
+        return '';
+    }
+
+    while (number > 0) {
+        rem = Math.floor(number % base);
+        remStack.push(rem);
+        number = Math.floor(number / base);
+    }
+
+    while (!remStack.isEmpty()) {
+        baseString += digits[remStack.pop()];
+    }
+
+    return resultField.textContent = baseString;
 }
 
 
-function somar(){
 
-    var soma = parseFloat(numero1.value) + parseFloat(numero2.value);
-    return mostrarResultado(soma)
-    
-}
+showResult.addEventListener('click', () => {
 
-function subtrair(){
-    var  subtracao = parseFloat(numero1.value) - parseFloat(numero2.value);
-    
-    return mostrarResultado(subtracao)
-}
+    const numberUser = parseFloat(document.querySelector('#NumberDec').value);
+    const baseUser = parseFloat(document.querySelector('#NumberBase').value);
 
-function dividir(){
+    if(numberUser < 2 || (baseUser < 2  )){
+        
+       return alert("Números inválidos! Digite novamente. ");
+    }
 
-    if(numero2.value != 0){
-        var  divisao = parseFloat(numero1.value) / parseFloat(numero2.value);
-        return mostrarResultado(divisao)
-
-    }else{
-        alert("Não é possível efetuar a divisão por zero")
-    }  
-}
+    baseConverter(numberUser, baseUser);
 
 
-function multiplicar(){
-    var  multiplicacao = parseFloat(numero1.value) * parseFloat(numero2.value);
-    return mostrarResultado(multiplicacao)
-}
+})
+
+
