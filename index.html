@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
-    <link rel="stylesheet" href="/styles/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="/styles/style.css">
 </head>
+
 <body>
-    
-<div class="container">
-    
 
-    <h1 class="titulo">Calculadora</h1>
+  <div class="container">
 
-    Primeiro número:
-    <input class="campo" id="numero1" type="number">
 
-    Segundo número:
-    <input class="campo" id="numero2" type="number">
-    
+    <h1 class="title">Conversor de base</h1>
+
+    <label for="NumberDec">Número decimal:</label>
+    <input class="field" id="NumberDec" type="number">
+
+    <label for="NumberBase">Base para conversão (entre 2 e 36):</label>
+    <input class="field" id="NumberBase" type="number">
+
     <div class="bnt-">
-      <button class="bnt" type="button" onclick="somar()">somar</button>
-      <button class="bnt" type="button" onclick= "subtrair()">Subtrair</button>
-      <button class="bnt" type="button" onclick="dividir()">Dividir</button>
-      <button class="bnt" type="button" onclick="multiplicar()">Multiplicar</button>
+      <button class="bnt showResult" type="button">Mostrar resultado</button>
+
+
     </div>
-    <p class="resultado">resultado</p>
-      
-</div>
+    <p class="result">resultado</p>
+
+  </div>
 
 </body>
 <script src="Js/script.js"></script>
