@@ -31,7 +31,8 @@ class Stack {
 }
 
 const showResult = document.querySelector('.showResult');
-const resultField = document.querySelector('.result');
+const result = document.createElement('span');
+
 
 //função responsável por converter a base
 
@@ -60,24 +61,34 @@ function baseConverter(decNumber, base) {
         baseString += digits[remStack.pop()];
     }
 
-    return resultField.textContent = baseString;
+
+    creatResult(baseString)
 }
 
 
 
 showResult.addEventListener('click', () => {
 
+
+
     const numberUser = parseFloat(document.querySelector('#NumberDec').value);
     const baseUser = parseFloat(document.querySelector('#NumberBase').value);
 
-    if(numberUser < 2 || (baseUser < 2  )){
-        
-       return alert("Números inválidos! Digite novamente. ");
+    if (numberUser < 2 || (baseUser < 2)) {
+
+        return alert("Números inválidos! Digite novamente. ");
     }
 
     baseConverter(numberUser, baseUser);
 
-
 })
 
-
+function creatResult (str) {
+    const container = document.querySelector('.container');
+    
+    result.classList.add('result');
+    result.textContent = str;
+    container.appendChild(result);
+    
+    return container;
+}
